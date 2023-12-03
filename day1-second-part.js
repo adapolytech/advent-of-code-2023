@@ -2,7 +2,7 @@ import { open } from "fs/promises";
 
 const digits = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
-const digitsValueByName = {
+const digitsNumericValue = {
   one: "1",
   two: "2",
   three: "3",
@@ -40,7 +40,7 @@ const getFirstAndLast = (line) => {
       } else {
         lettersAccumulatorsFromStart.push(charAtIndexFromStart);
         const isDigitInLetter = isCharacterIncludeDigitNumber(lettersAccumulatorsFromStart.join(""));
-        if (isDigitInLetter) first = digitsValueByName[isDigitInLetter];
+        if (isDigitInLetter) first = digitsNumericValue[isDigitInLetter];
       }
     }
     if (!last) {
@@ -49,7 +49,7 @@ const getFirstAndLast = (line) => {
       } else {
         lettersAccumulatorsFromEnd.unshift(charAtIndexFromEnd);
         const isDigitInLetter = isCharacterIncludeDigitNumber(lettersAccumulatorsFromEnd.join(""));
-        if (isDigitInLetter) last = digitsValueByName[isDigitInLetter];
+        if (isDigitInLetter) last = digitsNumericValue[isDigitInLetter];
       }
     }
     if (first && last) return `${first}${last}`;
